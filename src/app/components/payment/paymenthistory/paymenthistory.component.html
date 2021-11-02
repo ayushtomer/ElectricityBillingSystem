@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="header-title pb-3 mt-0">Payments</h5>
+                    <input class="table-responsive" placeholder="Search By Connection ID" (input)="viewbyid()" [(ngModel)]="search"><button type="submit" class="btn btn-danger" (click)="viewbyid()">Search</button>
+                    <div class="table-responsive">
+                        <table class="table table-hover mb-0">
+                            <thead>
+                                <tr class="align-self-center">
+                                    <th>Payment ID</th>
+                                    <th>Connection ID</th>
+                                    <th>Payment Mode</th>
+                                    <th>Payment Date</th>
+                                    <th>Payment Amount </th>
+                                    <th>Payment Status</th>
+                                    <th>Bill ID </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let val of details; let i = index">
+                                    <td>{{val.paymentId}}</td>
+                                    <td><img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="thumb-sm rounded-circle mr-2">&nbsp;&nbsp;{{val.connectionid}}</td>
+                                    <td>{{val.paymentMode}}</td>
+                                    <td>{{val.paymentDate}}</td>
+                                    <td>₹&nbsp;{{val.paymentAmount}}</td>
+                                    <td><span class="badge badge-boxed badge-soft-primary">success</span></td>
+                                    <td>{{val.billid}}</td>
+                                </tr>
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                    <!--end table-responsive-->
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+.card{
+    width:100vh;
+    border: none;
+    align-items: center;
+    background-position: center;
+     margin: 0 auto; 
+     float: none;
+    margin-bottom: 10px;
+    padding-top: 30px;
+
+}
+table{
+    
+    
+    font-size: 20px;
+    color:rgba(58, 42, 23, 0.795);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    text-shadow: 300px;
+    text-align: justify;
+} 
+p{
+    font-size: 20px;
+    color:rgba(58, 42, 23, 0.795);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    text-shadow: 300px;
+    text-align: center;
+}
+h1{
+    text-align: left;
+}

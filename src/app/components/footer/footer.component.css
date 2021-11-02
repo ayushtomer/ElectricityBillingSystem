@@ -1,0 +1,44 @@
+.body{
+    background: linear-gradient(to right, #0f0c29, #005AA7, #0f0c29);
+}
+
+.footer-body{
+    width: 100%;
+}
+
+.foot-text{
+    color: cornsilk;
+    font-family: "Changa";
+    font-size: 25px;
+}
+
+.foot-icon{
+    width: 50px;
+    height: 50px;
+    float: left;
+    margin: 0px 20px 0px 50px ;
+}
+
+.desc{
+    font-size: 20px;
+    margin: 30px 70px 40px 60px;
+    color: cornsilk;
+    font-family: "Changa";
+}
+
+a{
+    font-size: 20px;
+    color: cornsilk;
+    font-family: "Changa";
+}
+
+@media only screen and ( max-width: 320px ){
+    .foot-icon{
+        margin: 0% 5% 0% 5%;
+    }
+
+    .desc{
+        margin-right: 3%;
+        margin-left: 25%;
+    }
+}

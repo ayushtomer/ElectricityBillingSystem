@@ -1,0 +1,155 @@
+<div class="body">
+
+    <div class="container" id="container">
+
+        <div class="font-container sign-up-container">
+    
+            <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" action="#">
+    
+                <h1>Create Account</h1>
+                <div class="social-container">
+                </div>
+                
+                <input formControlName="name" autocomplete="off" class="form-control" type="text" placeholder="Name">
+                <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                    <small *ngIf="f.name.errors.required">Name is required</small>
+                    <small *ngIf="f.name.errors.maxlength">Name cannot be more than 15 characters</small>
+                </div>
+                
+                <div class="row col-12">
+                    <div class="col col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <input formControlName="email"  class="form-control" type="email" placeholder="Email">
+                        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                            <small *ngIf="f.email.errors.required">Email is required</small>
+                            <small *ngIf="f.email.errors.email">Email must be a valid email address</small>
+                            <small *ngIf="f.email.errors.pattern">Email not valid</small> 
+                        </div>    
+                    </div>
+                    <div class="col col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <input type="text" formControlName="username"  class="form-control" placeholder="User name"/>
+                        <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                            <small *ngIf="f.username.errors.required">User Name is required</small>
+                            <small *ngIf="f.username.errors.maxlength">User Name cannot be more than 15 characters</small>
+                        </div>    
+                    </div>
+                </div>
+
+                <div class="row col-12">
+                    <div class="col col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <input formControlName="mobile"  class="form-control" type="text" placeholder="Mobile">
+                        <div *ngIf="submitted && f.mobile.errors" class="invalid-feedback">
+                            <small *ngIf="f.mobile.errors.required">mobile is required</small>
+                            <small *ngIf="f.mobile.errors.pattern">Mobile number not valid</small> 
+                            <small *ngIf="f.mobile.errors.maxlength">Mobile number not valid</small> 
+                        </div>    
+                    </div>
+                    <div class="col col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        
+                        <select name="gender" id="gender" formControlName="gender"  class="form-control" placeholder="Gender">
+                            <option value="" selected="selected">Gender</option>
+                            <option value="MALE">Male</option>
+                            <option value="FEMALE">Female</option>
+                            <option value="OTHER">Other</option>
+                        </select>    
+                    </div>
+                </div>
+
+                <input formControlName="address"  class="form-control" type="text" placeholder="Address">
+                <div *ngIf="submitted && f.address.errors" class="invalid-feedback">
+                    <small *ngIf="f.address.errors.required">Address is required</small>
+                </div>
+                
+                <div class="row col-12">
+                    <div class="col col-lg-6 col-md-6 col-sm-6 col-xs-12" >
+                        <input formControlName="password"  class="form-control" type="password" placeholder="Password">
+                        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                            <small *ngIf="f.password.errors.required">Password is required</small>
+                            <small *ngIf="f.password.errors.minlength">Password must be at least 8 characters</small>
+                        </div>
+                    </div>
+
+                    <div class="col col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <input formControlName="confirmPassword"  class="form-control" type="password" placeholder="Re-Enter Password">
+                        <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
+                            <small *ngIf="f.confirmPassword.errors.required"> Password is required</small>
+                            <small *ngIf="f.confirmPassword.errors.mustMatch">Passwords must match</small>
+                        </div>
+                    </div>
+
+                </div>
+
+                <button>Sign Up</button>
+    
+            </form>
+    
+        </div>
+    
+        <div class="font-container sign-in-container">
+    
+            <form action="#" [formGroup]="signInForm" (ngSubmit)="signIn()">
+    
+                <h1>Sign In</h1>
+                <div class="social-container">
+                    <a  id="facebook" (click)="myFunction()" class="social"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                    <a  id="google-plus" (click)="myFunction()" ><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+                    <a  id="facebook" (click)="myFunction()" ><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                </div>
+                <span>or use your account</span>
+                
+                <input type="text" formControlName="username"  class="form-control" placeholder="Enter your User name"/>
+                <div *ngIf="signInFormSubmitted && f.username.errors" class="invalid-feedback">
+                    <small *ngIf="f2.username.errors.required">User Name is required</small>
+                </div>
+
+                <input formControlName="password"  class="form-control" type="password" placeholder="Password">
+                <div *ngIf="signInFormSubmitted && f2.password.errors" class="invalid-feedback">
+                    <small *ngIf="f.password.errors.required">Password is required</small>
+                </div>
+                
+                <a href="/forgot">forgot password ?</a>
+                <button >Sign In</button>
+    
+            </form>
+    
+        </div>
+    
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class=" overlay-panel overlay-left">
+                    <h1>Hello, Friend!</h1>
+                    <p>Enter your personal details and start journey with us</p>
+                    <p>Already have any account ? Click below to Sign In</p>
+                    <button class="ghost" (click) = "function1()" id="signIn">Sign In</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1>Welcome Back!</h1>
+                    <p>To keep connected with us please login with your personal info</p>
+                    <p> Or Click below to create new account if you do not have one already -</p>
+                    <button class="ghost" id="signUp" (click) = "function2()">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    
+    </div>
+
+    <div class="form-group">
+        <div
+          class="alert alert-danger"
+          role="alert"
+          *ngIf = "signInFormSubmitted && isLoginFailed">Log In Failed:
+          Please Confirm Email or Provide Valid Credentials
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div
+          class="alert alert-success"
+          role="alert"
+          *ngIf = "submitted && !isSignUpFailed">
+          User Registration Successful, click on link sent to your email address.
+        </div>
+    </div>
+
+</div>
+
+<div id="snackbar">Work Under Progress. Please Sign Up / Sign In with your E-Mail ID.</div>

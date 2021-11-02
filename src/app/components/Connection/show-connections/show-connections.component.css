@@ -1,0 +1,120 @@
+thead th{
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: darkgray;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+tbody td, tbody th{
+    padding: 20px;
+    font-family: "Fira Sans";
+    letter-spacing: 1px;
+    text-align: left;
+}
+
+input{
+  background-color: white;
+}
+
+button {
+  border-radius: 20px;
+  border: 1px solid #0f0c29;
+  background-color: #0f0c29;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 12px 20px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: transform 80ms ease-in;
+}
+
+h1{
+  text-align: center;
+  font-size: 40px;
+  font-weight: bold;
+  padding: 12px 45px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+button:focus {
+  outline: none;
+}
+
+button.ghost {
+  background-color: transparent;
+  border-color: #ffffff;
+  transition-duration: 0.4s;
+}
+
+#error-snackbar{
+  visibility: hidden;
+  height: 50px;
+  background-color: red;
+  color: #fff;
+  font-family: "Roboto";
+  text-align: center;
+  border-radius: 2px;
+  border-color: black;
+  padding: 16px;
+  position: fixed;
+  z-index: 10;
+  left: 40%;
+  top: 30%;
+  font-size: 17px;
+}
+
+#error-snackbar.show{
+  visibility: visible;
+  -webkit-animation: fadein 0.5s, fadeout 4s 4.5s;
+  animation: fadein 0.5s, fadeout 4s 4.5s;
+}
+
+@-webkit-keyframes fadein {
+  from {bottom: 0; opacity: 0;} 
+  to {bottom: 0; opacity: 1;}
+}
+
+@keyframes fadein {
+  from {left: 0; opacity: 0;}
+  to {bottom: 0; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+  from {bottom: 0; opacity: 1;} 
+  to {bottom: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+  from {bottom: 0; opacity: 1;}
+  to {bottom: 0; opacity: 0;}
+}
+
+#success-snackbar{
+  visibility: hidden;
+  height: 50px;
+  background-color: green;
+  color: #fff;
+  font-family: "Roboto";
+  text-align: center;
+  border-radius: 2px;
+  border-color: black;
+  padding: 16px;
+  position: fixed;
+  z-index: 10;
+  left: 40%;
+  top: 30%;
+  font-size: 17px;
+}
+
+#success-snackbar.show{
+  visibility: visible;
+  -webkit-animation: fadein 0.5s, fadeout 4s 4.5s;
+  animation: fadein 0.5s, fadeout 4s 4.5s;
+}

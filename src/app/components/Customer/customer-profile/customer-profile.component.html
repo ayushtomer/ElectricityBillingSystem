@@ -1,0 +1,413 @@
+<div>
+
+    <div  class="body col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+        <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
+
+            <div class="left-card">
+
+                <div class="profile-image ">
+                    <h1></h1>
+                </div>
+
+                <div class="user-name"><h4>{{user.username}}</h4></div>
+
+                <div class="link-list" style=" margin-top: 40px;">
+
+                    <div class="left-link" ><div class="link">  Profile </div></div>
+                    <div class="left-link" (click) = 'logInIntoView()'><div class="link"> LogIn Details</div></div>
+                    <div class="left-link" (click) = 'connectionIntoView()'><div class="link"> Connections Details</div></div>
+                    <div class="left-link" (click) = 'billIntoView()'><div class="link"> Bill Details</div></div>
+                    <div class="left-link" (click)='paymentIntoView()'><div class="link"> Payment Details</div></div>
+                  <!--  <div class="left-link"><div class="link"><span class="glyphicon glyphicon-plane"></span> My Trips </div></div>-->
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="right-card col-lg-8 col-md-8 col-sm-7 col-xs-12">
+
+            <div class="card profile-card">
+            
+                <div class=" col-12 card-header container-fluid ">
+
+                    <div style="float: left; width: 59%;">
+                        <h2>Profile</h2>
+                        <p>Basic info.</p>
+                    </div>
+
+                    <div>
+                        <button class="edit-button" data-toggle="modal" data-target="#myModal"> <span class="glyphicon glyphicon-pencil"> </span> Edit</button>
+                    </div>
+
+                </div>
+                
+                <div class="card-body">
+                
+                    <table class="table profile-table table-hover">
+                        
+                        <tbody>
+                    
+                            <tr>
+                                <td class="left-column" >NAME</td>
+
+                                <td class="right-column">{{user.name}}</td>
+    
+                                <td class="add" >
+                                    <span *ngIf = "user.userName ===''; then con01" ></span>
+    
+                                    <ng-template #con01>
+                                        <button data-toggle="modal" data-target="#myModal">+ Add</button>
+                                    </ng-template>
+                                </td>
+    
+                            </tr>
+                    
+                            <tr>
+                                <td class="left-column" >BIRTHDAY</td>
+                                <td class="right-column">{{user.birthday}}</td>
+
+                                <td class="add" >
+                                    <span *ngIf = "user.birthday ==='' then con01" ></span>
+    
+                                </td>
+
+                            </tr>
+                    
+                            <tr>
+                                <td class="left-column" >GENDER</td>
+                                <td class="right-column">{{user.gender}}</td>
+
+                                <td class="add" >
+                                    <span *ngIf = " user.gender ===''; then con01" ></span>
+    
+                                </td>
+
+                            </tr>
+                    
+                            <tr>
+                                <td class="left-column" >ADDRESS</td>
+                                <td class="right-column">{{user.address}}</td>
+                            </tr>
+                    
+                        </tbody>
+                    
+                    </table>
+                
+                </div>
+            
+            </div>
+
+
+<!-- *************************************************************************************************** -->
+<!-- *************************************************************************************************** -->
+<!-- *************************************************************************************************** -->
+            <!-- LOGIN_DETAILS_CARD -->
+<!-- *************************************************************************************************** -->
+<!-- *************************************************************************************************** -->
+<!-- *************************************************************************************************** -->
+
+
+            <div class="card login-details-card">
+            
+                <div class=" col-12 card-header container-fluid ">
+
+                    <div style="float: left; width: 59%; ">
+                        <h2>LogIn Details</h2>
+                        <p>Manage your email address mobile number and password.</p>
+                    </div>
+
+                    <div>
+                        <button class="edit-button" data-toggle="modal" data-target="#myModal"> <span class="glyphicon glyphicon-pencil"> </span> Edit</button>
+                    </div>
+
+                </div>
+                
+                <div class="card-body">
+                
+                    <table class="table profile-table table-hover">
+                        
+                        <tbody>
+                    
+                            <tr>
+                                <td class="left-column" >MOBILE NUMBER</td>
+
+                                <td class="right-column">{{user.mobile}}</td>
+    
+                                <td class="add" >
+                                    <span *ngIf = "user.mobileNumber ===''; then con01" ></span>
+    
+                                </td>
+    
+                            </tr>
+                    
+                            <tr>
+                                <td class="left-column" >EMAIL ID</td>
+                                <td class="right-column">{{user.email}}</td>
+
+                                <td class="add" >
+                                    <span *ngIf = "user.emailId === ''; then con01" ></span>
+    
+                                </td>
+
+                            </tr>
+                    
+                            <tr>
+                                <td class="left-column" >PASSWORD</td>
+                                <td class="right-column">****</td>
+
+                                <td class="add" >
+                                    <button>Change Password ?</button>
+                                </td>
+
+                            </tr>
+                    
+                        </tbody>
+                    
+                    </table>
+                
+                </div>
+            
+            </div>
+
+            <div class="card connection-buttons-card">
+            
+                <div class=" col-12 card-header container-fluid ">
+
+                    <div style="float: left; width: 59%; ">
+                        <h2>Connections</h2>
+                        <p>View & Manage your Connections.</p>
+                    </div>
+
+                    <div>
+                        <button class="edit-button" data-toggle="modal" data-target="#myModal"> <span class="glyphicon glyphicon-pencil"> </span> Edit</button>
+                    </div>
+
+                </div>
+                
+                <div class="card-body">
+                
+                    <table class="table profile-table table-hover">
+                        
+                        <tbody>
+
+                            <tr>
+                               
+                                <td class="left-column" >View All Connections</td>
+
+                                <td class="right-column"> <button (click) = 'showAllConnections()' >Show all Connections </button></td>
+                                
+                            </tr>
+                    
+                            <tr>
+                                <td class="left-column" >Add new connection</td>
+
+                                <td class="right-column"> <app-add-connection></app-add-connection> </td>
+    
+                            </tr>
+                    
+                        </tbody>
+                    
+                    </table>
+                
+                </div>
+            
+            </div>
+
+            <div class="card bill-buttons-card">
+            
+                <div class=" col-12 card-header container-fluid ">
+
+                    <div style="float: left; width: 59%; ">
+                        <h2>Bill Operations</h2>
+                        <p>View & Manage your electricity bills.</p>
+                    </div>
+
+                    <div>
+                        <button class="edit-button" data-toggle="modal" data-target="#myModal"> <span class="glyphicon glyphicon-pencil"> </span> Edit</button>
+                    </div>
+
+                </div>
+                
+                <div class="card-body">
+                
+                    <table class="table profile-table table-hover">
+                        
+                        <tbody>
+                    
+                            <tr>
+                                <td class="left-column" >View All Bills</td>
+
+                                <td class="right-column"><button (click) = 'showAllBills()' >View All Bills </button></td>
+    
+                            </tr>
+                    
+                        </tbody>
+                    
+                    </table>
+                
+                </div>
+            
+            </div>
+
+                        <!------------------Payment history-->
+             <!------------------Payment history-->
+              <!------------------Payment history-->
+               <!------------------Payment history-->
+               <div class="card payment-buttons-card">
+            
+                <div class=" col-12 card-header container-fluid ">
+
+                    <div style="float: left; width: 59%; ">
+                        <h2>Payment History</h2>
+                        <p>Check your Payment History</p>
+                    </div>
+
+                  <!-- <div>
+                        <button class="edit-button" data-toggle="modal" data-target="#myModal"> <span class="glyphicon glyphicon-pencil"> </span> Edit</button>
+                    </div>
+                    --> 
+
+                </div>
+                
+                <div class="card-body">
+                
+                    <table class="table profile-table table-hover">
+                        
+                        <tbody>
+
+                            <tr>
+                               
+                                <td class="left-column" >View Payment History</td>
+
+                                <td class="right-column"> <button type="button" class="btn btn-primary" (click)="paymenthistory()" >View Payment History</button></td>
+                                
+                            </tr>
+                    
+                        </tbody>
+                    
+                    </table>
+                
+                </div>
+            
+            </div>
+            <!--    payment history ends   ---------><!--    payment history ends   --------->
+            <!--    payment history ends   --------->
+<!--    payment history ends   --------->
+
+        </div>
+
+    </div>
+
+</div>
+<!-- ---------------------------------------------------------------- -->
+<!-- ---------------------------------------------------------------- -->
+<!-- ---------------------------------------------------------------- -->
+<!-- ---------------------------------------------------------------- -->
+<!-- ---------------------------------------------------------------- -->
+<!-- ---------------------------------------------------------------- -->
+
+<!-- MODALS -->
+
+<!-- ---------------------------------------------------------------- -->
+<!-- ---------------------------------------------------------------- -->
+<!-- ---------------------------------------------------------------- -->
+<!-- ---------------------------------------------------------------- -->
+<!-- ---------------------------------------------------------------- -->
+
+<div class="modal fade" id="myModal" role="dialog">
+                    
+    <div class="modal-dialog ">
+
+        <div class="modal-content">
+        
+            <div class="modal-header">
+
+                <button type="button" class="close" data-dismiss="modal"><h4 id="close-button">Close</h4></button>
+                <h4 class="modal-title">Edit Profile</h4>
+
+            </div>
+            
+            <div class="modal-body row">
+            
+                <form [formGroup]="form">
+
+                    <div class="form-row row">
+
+                        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-6 input-field">
+                            <label for="Name">NAME</label>
+                            <br>
+                            <input type="text" formControlName="name" id="fullname" placeholder="{{user.name.value}}"  class="form-control" required >
+                        </div>
+        
+                        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-6 input-field">
+                            <label for="Birthday">Birthday</label>
+                            <br>
+                            <input type="text" formControlName="birthday" onfocus="(this.type='date')" onblur="(this.type='text')" id="birthday" placeholder="{{user.birthday.value}}"  class="form-control" required >
+                        </div>
+
+                    </div>
+
+                    <div class="form-row row">
+
+                        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-6 input-field">
+                            <label for="">gender</label>
+                            <br>
+                            <div class="btn-group">
+                                
+                                <select [ngModelOptions]="{standalone: true}" [(ngModel)] = "gender" name="" id="">
+                                    <option selected hidden value="user.gender.value" >{{user.gender.value}}</option>
+                                    <option value=""> Female </option>
+                                    <option value=""> Male </option>
+                                </select>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row row">
+                        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-6 input-field">
+                            <label for="">marital Status</label>
+                            <br>
+                            <div class="btn-group">
+                                <input type="text" formControlName="address" id="address" placeholder="{{user.address.value}}"  class="form-control" required  >
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="form-row row">
+
+                        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-6 input-field">
+                            <label for="mobile">mobile number</label>
+                            <br>
+                            <input type="text" formControlName="mobileNumber" id="mobileNumber" placeholder="{{user.mobileNumber.value}}"  class="form-control" required >
+                        </div>
+        
+                        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-6 input-field">
+                            <label for="emailId">Eamil id</label>
+                            <br>
+                            <input type="text" formControlName="emailId" id="emailId" placeholder="{{user.emailId.value}}"  class="form-control" required >
+                        </div>
+
+                    </div>
+
+                    <div class="form-row row button-row">
+
+                        <button type="button" id="close-button" class="btn btn-dark" data-dismiss="modal" data-toggle="modal">Close</button>
+
+                        <button type="button"  id="submit-button" class="btn btn-success" data-dismiss="modal" data-toggle="modal">Submit</button>
+
+                    </div>
+
+                </form>
+                
+            </div>
+        
+        </div>
+    
+    </div>
+
+</div>

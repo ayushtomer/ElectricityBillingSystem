@@ -1,0 +1,110 @@
+<div class="body">
+    <h1>List of Bills</h1>
+    <p>{{nullmsg}}</p>
+    <table id="myTable" class="table table-hover table-striped">
+        <thead>
+            <th (click)="sortTable(0)"> BILLID</th>
+            <th (click)="sortTable(1)">ConnectionId</th>
+            <th (click)="sortTable(2)">billingDate</th>
+            <th (click)="sortTable(3)">prev-Reading</th>
+            <th (click)="sortTable(4)">curr-Reading</th>
+            <th (click)="sortTable(5)">unitsConsumed</th>
+            <th (click)="sortTable(6)">dueDate</th>
+            <th (click)="sortTable(7)">chargesPerUnit</th>
+            <th (click)="sortTable(8)">amount</th>
+            <th (click)="sortTable(9)">billStatus</th>
+        </thead>
+        <tbody [@listAnimation]>
+            <tr *ngFor = "let bill of billsArray; let i = index">
+                <td>{{bill.billID}}</td>
+                <td>{{bill.connectionId}}</td>
+                <td>{{bill.billingDate}}</td>
+                <td>{{bill.previousReading}}</td>
+                <td>{{bill.currentReading}}</td>
+                <td>{{bill.unitsConsumed}}</td>
+                <td>{{bill.dueDate}}</td>
+                <td>Rs. {{bill.chargesPerUnit}}.00</td>
+                <td>Rs. {{bill.amount}}.00</td>
+                <td>{{bill.billStatus}}</td>
+                <td><button *ngIf = "bill.billStatus == 'UNPAID' && profile === 'CUSTOMER'" (click)="checkout(i)">PAY</button></td>
+                <td><button *ngIf = "profile === 'ADMIN'" (click) = 'setDeleteBill(bill)' class="edit-button" data-toggle="modal" data-target="#myModal">Delete</button></td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    <div class="modal fade" id="myModal" role="dialog">
+                        
+        <div class="modal-dialog ">
+
+            <div class="modal-content">
+            
+                <h2>
+                    Are You Sure to DELETE the following bill ?
+                </h2>
+                <div class="modal-body row">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <th>Bill ID:</th>
+                                <td>{{tobeDeletedBill.billID}}</td>
+
+                                <th>previousReading</th>
+                                <td>{{tobeDeletedBill.previousReading}}</td>
+
+                            </tr>
+
+                            <tr>
+                                <th>connectionId:</th>
+                                <td>{{tobeDeletedBill.connectionId}}</td>
+
+                                <th>billingDate</th>
+                                <td>{{tobeDeletedBill.billingDate}}</td>
+
+                            </tr>
+
+                            <tr>
+                                <th>currentReading</th>
+                                <td>{{tobeDeletedBill.currentReading}}</td>
+
+                                <th>unitsConsumed</th>
+                                <td>{{tobeDeletedBill.unitsConsumed}}</td>
+
+                            </tr>
+
+                            <tr>
+                                <th>dueDate</th>
+                                <td>{{tobeDeletedBill.dueDate}}</td>
+
+                                <th>chargesPerUnit</th>
+                                <td>{{tobeDeletedBill.chargesPerUnit}}</td>
+
+                            </tr>
+
+                            <tr>
+                                <th>amount</th>
+                                <td>{{tobeDeletedBill.amount}}</td>
+
+                                <th>billStatus</th>
+                                <td>{{tobeDeletedBill.billStatus}}</td>
+
+                            </tr>
+
+                            <tr class="special-row">
+                                <td><button class="delete-button" data-dismiss="modal" data-toggle="modal" (click) = "deleteBill()">YES</button> </td>
+                                <td><button data-dismiss="modal" class="no-button" data-toggle="modal"> NO</button></td>
+                                <td>you will be redirected to <em>ADMIN PROFILE</em> page on successfull deletion.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            
+            </div>
+        
+        </div>
+
+    </div>
+
+</div>
+
+<div id="error-snackbar">{{errorMessage}}</div>

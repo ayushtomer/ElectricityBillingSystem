@@ -1,0 +1,79 @@
+
+<div *ngIf="mainflag==true" style="padding-left: 5%;">
+  <div class="container" >
+      <div class="row text-center">
+          <div class="col-sm-6 col-sm-offset-3">
+          <br><br> <h2 style="color:#0fad00">Success</h2>
+          <img src="/assets/images/complete.gif">
+          <h3>Dear,{{id}}</h3>
+          <p style="font-size:20px;color:#5C5C5C;">ThankYou Your Payment is done Successfully</p>
+          <a  (click)="redirect()" class="btn btn-success">Home</a>
+      <br><br>
+          </div>
+          
+      </div>
+  </div>
+</div>
+    
+    <div style="padding-left: 28%;background-color: rgb(165, 165, 218);" *ngIf="flag==true">
+      <h1>You are at Secured Payment Page..Do not refresh or click back...<br><br></h1>
+      <form  [formGroup]="paymentForm" (ngSubmit)="paybill()" novalidate>
+    
+        <div class="form-group">
+          <label>Name on Card   <i class="fa fa-credit-card"></i></label>
+          <input class="form-control" type="text" formControlName="nameOnCard" placeholder="name on card" [ngClass]="{ 'is-invalid': (f.nameOnCard.dirty || f.nameOnCard.touched) && f.nameOnCard.errors }">
+          <div *ngIf="!f.nameOnCard.valid && (f.nameOnCard.dirty || f.nameOnCard.touched)" class="invalid-feedback">
+              <div *ngIf="f.nameOnCard.errors" class="alert alert-danger">Invalid Cardholder Name.</div>
+          </div>
+        </div>
+    
+        <div class="form-group">
+          <label>Card Number &nbsp; <i  class="fa fa-credit-card"></i></label>
+          <input class="form-control" type="number" formControlName="cardNumber" placeholder="1234123412341234" [ngClass]="{ 'is-invalid': f.cardNumber.errors  && (f.cardNumber.dirty || f.cardNumber.touched)}">
+          <div *ngIf="!f.cardNumber.valid && (f.cardNumber.dirty || f.cardNumber.touched)" class="invalid-feedback">
+              <div *ngIf="f.cardNumber.errors" class="alert alert-danger">Invalid Card Number.</div>
+          </div>
+        </div>
+    
+        <div class="form-group expiry">
+            <label>Date of Expiration</label>
+            <input  class="form-control month" type="number"  formControlName="expirationMonth" placeholder="12" [ngClass]="{ 'is-invalid': !f.expirationMonth.valid && (f.expirationMonth.dirty || f.expirationMonth.touched) }">
+            <input  class="form-control year"   type="number" formControlName="expirationYear" placeholder="2021" [ngClass]="{ 'is-invalid': f.expirationYear.errors && (f.expirationYear.dirty || f.expirationYear.touched) }">
+            <div *ngIf="( !f.expirationMonth.valid && (f.expirationMonth.dirty || f.expirationMonth.touched) ) || ( !f.expirationYear.valid && (f.expirationYear.dirty || f.expirationYear.touched))" class="invalid-feedback">
+                <div *ngIf="f.expirationMonth.errors || f.expirationYear.errors" class="alert alert-danger">Invalid Date of Expiration.</div>
+            </div>
+        </div>
+    
+        <div class="form-group cvc">
+          <label>CVV/CVC &nbsp; <i  title="CVV is a  three-digit number printed on the back of the card, usually next to the signature panel" style="font-size:15px;color:wheat;" class="fa">&#xf05a;</i></label>
+          <input class="form-control"   type="number" formControlName="cardCVVNumber" placeholder="123" [ngClass]="{ 'is-invalid': f.cardCVVNumber.errors && (f.cardCVVNumber.dirty || f.cardCVVNumber.touched) }">
+            <div *ngIf="!f.cardCVVNumber.valid && (f.cardCVVNumber.dirty || f.cardCVVNumber.touched)" class="invalid-feedback">
+                <div *ngIf="f.cardCVVNumber.errors" class="alert alert-danger">Invalid CVV / CVC Number.</div>
+            </div>
+        </div>
+    
+        <div style="padding-left: 10%;" class="form-group">
+          <button style="width: 300px;" type="submit" [disabled]="!paymentForm.valid" class="btn btn-warning">Pay &nbsp; ₹{{amount}}</button>
+        </div>
+        <h3 class="center-block text-center"></h3>
+      </form>
+    </div>
+
+
+      
+        
+                
+                <div style="margin: auto; padding-left: 30%;background-color: rgb(165, 165, 218)" *ngIf="otpflag==true"> 
+                  <img  src="/assets/images/otp.gif">
+                  <input class="otp"  type="text"   placeholder="enter mobile number" [(ngModel)]="phone" ><br>
+                  <button class="otpbtn" type="submit" class="btn btn-danger" value="generate otp" (click)="generateotp()" >Generate otp</button>
+             </div>
+         
+            
+              <div style="margin: auto; padding-left: 30%;" *ngIf="enterotpflag==true">
+                <img style="padding-right: 30%; width: 2000; height: 2000;" src="/assets/images/otp.gif">
+                  <input class="otp" type="text" required="required" minlength="6" maxlength="6" [(ngModel)]="otp" placeholder="enter otp">
+                  <button type="submit" class="btn btn-success" (click)="sendotp()">Submit OTP</button>
+              </div>
+           
+            

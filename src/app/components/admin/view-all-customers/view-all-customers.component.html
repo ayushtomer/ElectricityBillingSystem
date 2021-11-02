@@ -1,0 +1,27 @@
+<table>
+    <thead>
+        <th>#</th>
+        <th>Name</th>
+        <th>e-mail</th>
+        <th>Address</th>
+        <th>Mobile</th>
+        <th></th>
+        <th></th>
+    </thead>
+
+    <tbody>
+        <tr *ngFor = "let user of users; let i = index">
+            <td *ngIf = "user.roles[0].name === 'CUSTOMER'">{{i+1}}</td>
+            <td *ngIf = "user.roles[0].name === 'CUSTOMER'">{{user.name}}</td>
+            <td *ngIf = "user.roles[0].name === 'CUSTOMER'">{{user.email}}</td>
+            <td *ngIf = "user.roles[0].name === 'CUSTOMER'">{{user.address}}</td>
+            <td *ngIf = "user.roles[0].name === 'CUSTOMER'">{{user.mobile}}</td>
+            <td *ngIf = "user.roles[0].name === 'CUSTOMER'"><button>Connections</button></td>
+            <td *ngIf = "user.roles[0].name === 'CUSTOMER'"><button (click) = 'setCustomerBills(i)'>Bills</button></td>
+        </tr>
+
+
+        
+    </tbody>
+
+</table>

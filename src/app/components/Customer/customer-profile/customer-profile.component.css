@@ -1,0 +1,240 @@
+.body{
+    position: relative;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    padding-left: 5%;
+}
+
+.left-card{
+    width: 90%;
+    height: 550px;
+    padding: 5%;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(50, 50, 50, 0.75);
+}
+
+.profile-image{
+    border-radius: 20px;
+    width: 80%;
+    margin: 10%;
+    height: 40%;
+    background: linear-gradient(20deg, #0f0c29, #005AA7, #0f0c29);
+}
+
+.profile-image h1{
+    font-family: "Fira Sans";
+    font-weight: bolder;
+    color: white;
+    text-align: center;
+    padding-top: 45%;
+}
+
+.user-name{
+    font-size: 25px;
+    text-align: center;
+    font-family: "Fira Sans";
+}
+
+.left-link{
+    margin-top: 2%;
+    height: 40px;
+}
+
+.link{
+    letter-spacing: 2px;
+    font-size: 16px;
+    padding-left: 20px;
+    padding-top: 10px;
+}
+
+.link:hover{
+    cursor: pointer;
+}
+
+.glyphicon{
+    margin-right: 10px;
+}
+
+.left-link:hover{
+    background: whitesmoke;
+}
+
+.card{
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px 0px rgba(50, 50, 50, 0.75);
+}
+
+.card-header{
+    font-family: "Fira Sans";
+    font-weight: bolder;
+    padding: 2% 0 2% 0%;
+    background-color: whitesmoke;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+}
+
+.card-header h2, .card-header p {
+    margin: 0%;
+    color: #05417F;
+    border-left: 10px solid #05417F;
+    padding: 1% 0% 1% 2% ;
+}
+
+.edit-button{
+    float: right;
+    color: #05417F;
+    background: transparent;
+    border-radius: 30px;
+    margin: 20px 30px 0px 0px;
+    border: 1px solid #05417F;
+    padding: 5px 10px 5px 10px;
+}
+
+button {
+    border-radius: 20px;
+    border: 1px solid #0f0c29;
+    background-color: #0f0c29;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 5px 45px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: transform 80ms ease-in;
+  }
+  
+  button:active {
+    transform: scale(0.95);
+  }
+  
+  button:focus {
+    outline: none;
+  }
+  
+  button.ghost {
+    background-color: transparent;
+    border-color: #ffffff;
+    transition-duration: 0.4s;
+  }
+
+.edit-button:active{
+    transform: scale(0.7);
+    outline: none;
+}
+
+.edit-button:focus{
+    outline: none;
+}
+
+.card-body{
+    padding: 4% 0% 0% 2.5%;
+}
+
+td{
+    height: 60px;
+}
+
+.right-column{
+    padding: 20px;
+    width: 30%;
+    font-family: "Fira Sans";
+    letter-spacing: 1px;
+}
+
+.left-column{
+    padding: 20px;
+    width: 30%;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: darkgray;
+    text-transform: uppercase;
+}
+
+.add{
+    padding: 20px;
+    color: blue;
+    font-weight: bolder;
+}
+
+.add button{
+    background: transparent;
+    border: none;
+    outline: none;
+}
+
+.modal-header{
+    background:linear-gradient(to right, #07366D, #0f0c29);
+    font-family: 'Fira Sans';
+    color: white;
+}
+
+
+
+.modal-body{
+    margin: 0%;
+}
+
+.input-field{
+    text-align: center;
+    margin-top: 3%;
+}
+
+.input-field label{
+    text-transform: uppercase;font-size: 10px;
+    letter-spacing: 2px;
+    color: darkgray;
+}
+
+.input-field input, select{
+    width: 100%;
+    border-width: 0px 0px 4px 0px;
+    box-shadow:none;
+    outline: 0 none;
+    border-radius: 20px;
+    height: 30px;
+    font-family: "Fora Sans";
+    font-size: 20px;
+}
+
+::-webkit-input-placeholder {
+    color: darkgrey;
+    font-family: "Fora Sans";
+}
+-webkit-scrollbar {
+    display: none;
+    }
+.button-row{
+    text-align: center;
+}
+
+.button-row button{
+    margin: 30px;
+    font-size: 20px;
+    font-family: "Fira Sans";
+}
+
+
+
+@media only screen and ( max-width: 770px ){
+    .left-card{
+        margin: 0% 0% 10% 0%;
+        width: 100%;
+        height: 100%;
+    }
+
+    .profile-image{
+        display: none;
+    }
+
+    .link{
+        padding-left: 0%;
+        text-align: center;
+    }
+
+    .left-column, .right-column{
+        padding: 20px 0px 0px 0px;
+    }
+
+}
